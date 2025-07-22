@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Girly light theme colors - with improved contrast */
+    --background: 350 25% 97%;
+    --foreground: 340 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 30% 10%;
+
+    --primary: 330 60% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 310 35% 90%;
+    --secondary-foreground: 340 30% 20%;
+
+    --muted: 320 20% 96%;
+    --muted-foreground: 340 30% 40%;
+
+    --accent: 280 60% 75%;
+    --accent-foreground: 340 30% 15%;
+
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 320 25% 85%;
+    --input: 320 25% 90%;
+    --ring: 330 60% 60%;
+
+    --radius: 1rem;
+    
+    /* Custom girly colors - more vibrant */
+    --pink-soft: 330 70% 80%;
+    --pink-medium: 330 65% 60%;
+    --pink-deep: 330 60% 50%;
+    --lavender: 280 60% 80%;
+    --baby-blue: 200 70% 80%;
+    --mint: 150 60% 80%;
+    
+    /* Gradients - more vibrant */
+    --gradient-primary: linear-gradient(135deg, hsl(330 70% 75%), hsl(280 60% 75%));
+    --gradient-soft: linear-gradient(180deg, hsl(350 25% 97%), hsl(320 25% 92%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(320 20% 95%));
+    
+    /* Shadows - deeper */
+    --shadow-soft: 0 4px 20px -2px hsl(330 60% 60% / 0.2);
+    --shadow-medium: 0 8px 30px -4px hsl(330 60% 60% / 0.3);
+    --shadow-glow: 0 0 20px hsl(330 60% 60% / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Girly dark theme colors - with improved contrast */
+    --background: 260 25% 8%;
+    --foreground: 330 50% 90%;
+
+    --card: 260 20% 12%;
+    --card-foreground: 330 50% 90%;
+
+    --popover: 260 20% 12%;
+    --popover-foreground: 330 50% 90%;
+
+    --primary: 330 70% 65%;
+    --primary-foreground: 260 25% 8%;
+
+    --secondary: 260 20% 18%;
+    --secondary-foreground: 330 60% 85%;
+
+    --muted: 260 20% 15%;
+    --muted-foreground: 330 30% 75%;
+
+    --accent: 280 60% 65%;
+    --accent-foreground: 330 50% 90%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 260 25% 8%;
+
+    --border: 260 20% 25%;
+    --input: 260 20% 22%;
+    --ring: 330 70% 65%;
+    
+    /* Custom dark girly colors - more vibrant */
+    --pink-soft: 330 60% 65%;
+    --pink-medium: 330 70% 65%;
+    --pink-deep: 330 60% 50%;
+    --lavender: 280 60% 70%;
+    --baby-blue: 200 60% 75%;
+    --mint: 150 50% 70%;
+    
+    /* Dark gradients - more vibrant */
+    --gradient-primary: linear-gradient(135deg, hsl(330 70% 65%), hsl(280 60% 70%));
+    --gradient-soft: linear-gradient(180deg, hsl(260 25% 8%), hsl(260 20% 12%));
+    --gradient-card: linear-gradient(145deg, hsl(260 20% 12%), hsl(260 20% 15%));
+    
+    /* Dark shadows - stronger */
+    --shadow-soft: 0 4px 20px -2px hsl(330 60% 40% / 0.4);
+    --shadow-medium: 0 8px 30px -4px hsl(330 60% 40% / 0.5);
+    --shadow-glow: 0 0 20px hsl(330 60% 60% / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins text-base;
+    background: var(--gradient-soft);
+  }
+  
+  h1 {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+  
+  h2 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+  
+  p {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Custom utility classes */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
